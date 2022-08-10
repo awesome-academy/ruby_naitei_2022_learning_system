@@ -31,6 +31,7 @@ jobs:
     - bundle _2.1.4_ install --path vendor/bundle
     - mkdir .sun-ci
     script:
+    - bundle _2.1.4_ exec rails db:drop db:create db:migrate 
     - bundle _2.1.4_ exec rspec --format html --out .sun-ci/rspec.html spec/
     only:
       branches:
